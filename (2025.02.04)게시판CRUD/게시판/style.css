@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Bar{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.Bar >img {
+    margin-left: 14px;
+    height: 40px;
+}
+
+.Bar >h4 {
+    color: rgb(172, 172, 172);
+    font-size: 28px;
+    margin-left: 110px;
+}
+
+.Bar >h3 {
+    color: rgb(172, 172, 172);
+    font-size: 25px;
+}
+
+.logos{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 190px;
+    height: 100%;
+    
+}
+.logos >img {
+    height: 70%;
+}
+.logos > h3 {
+    color: rgb(172, 172, 172);
+    margin-right: 12px;
+}
+
+.contentOverlay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(172, 172, 172);
+    width: 100%;
+    height: 100vh;
+}
+
+.contentOverlay>.contentBack{
+    background-color: white;
+    margin-top: 20px ;
+    width: 95%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    flex-wrap :wrap;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+
+    overflow-y: auto; /* 세로 스크롤 추가 */
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+    max-height: 800px; /* 최대 높이 설정 (contentBack이 너무 커지는 걸 방지) */
+
+}
+.contentOverlay > .contentBack {
+    background-color: white;
+    margin-top: 20px;
+    width: 95%;
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 700px;
+    position: relative; /* ::after를 위한 상대 위치 설정 */
+}
+
+.contentOverlay > .contentBack > h3 {
+    position: sticky;
+    top: 0;
+    background-color: white; /* 배경색 설정 (스크롤 시 가려지지 않도록) */
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    text-align: left;
+    z-index: 10; /* 다른 요소 위에 표시되도록 설정 */
+}
+
+/*------------------------------------*/
+/* 스크롤 시 하단 그림자 */
+.contentOverlay > .contentBack::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* 그림자 높이 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+    pointer-events: none; /* 클릭 방지 */
+    opacity: 0; /* 기본적으로 숨김 */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 스크롤될 때만 그림자 보이기 */
+.contentOverlay > .contentBack.scrolled::after {
+    opacity: 1;
+}
+
+/*------------------------------------*/
+
+.contentBox {
+    width: 280px;
+    height: 200px;
+    background-color: rgb(239, 238, 238);
+    border: 1px black solid;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    margin: 15px;
+}
+
+/* 전체 스크롤바 스타일 */
+.contentBack::-webkit-scrollbar {
+    width: 10px; /* 스크롤바 너비 */
+}
+
+/* 스크롤바 트랙 (배경) */
+.contentBack::-webkit-scrollbar-track {
+    background: #f1f1f1; /* 연한 회색 배경 */
+    border-radius: 10px; /* 둥근 테두리 */
+}
+
+/* 스크롤바 핸들 (움직이는 부분) */
+.contentBack::-webkit-scrollbar-thumb {
+    background: #888; /* 기본 색상 */
+    border-radius: 10px; /* 둥근 모양 */
+}
+
+/* 스크롤바 핸들에 마우스를 올렸을 때 */
+.contentBack::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 더 진한 회색 */
+}
+
+.writeBack {
+    background-color: white;
+    margin-top: 20px;
+    width: 95%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.writeBack >.imgAndName {
+    width: 30%;
+    height: 300px;
+    border: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.writeBack >.imgAndName >.imageBox{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative; /*이미지 호버효과줄때*/
+}
+.writeBack >.imgAndName >.imageBox >img {
+    width: 100px; /* 고정 크기 */
+    height: 100px;
+    border-radius: 50%; /* 동그랗게 만들기 (원형 프로필) */
+    object-fit: cover; /* 업로드된 이미지 크기에 맞춰 조정 */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.writeBack > .imgAndName > .imageBox > label {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer; /* 마우스 올렸을 때 클릭 가능하게 */
+    color: black;
+    text-decoration: underline;
+}
