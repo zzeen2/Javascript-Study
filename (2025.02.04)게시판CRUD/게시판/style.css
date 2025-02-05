@@ -71,14 +71,15 @@
 }
 .contentOverlay > .contentBack {
     background-color: white;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     width: 95%;
     height: 70%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     border-radius: 10px;
-    padding: 20px;
+    
+    padding: 0 20px 20px 20px;
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 700px;
@@ -91,6 +92,7 @@
     background-color: white; /* 배경색 설정 (스크롤 시 가려지지 않도록) */
     width: 100%;
     padding: 10px;
+    padding-top: 20px;
     margin: 0;
     text-align: left;
     z-index: 10; /* 다른 요소 위에 표시되도록 설정 */
@@ -99,6 +101,7 @@
 /*------------------------------------*/
 /* 스크롤 시 하단 그림자 */
 .contentOverlay > .contentBack::after {
+    font-size: 20px;
     content: "";
     position: absolute;
     bottom: 0;
@@ -154,45 +157,132 @@
     background-color: white;
     margin-top: 20px;
     width: 95%;
-    height: 70%;
+    height: 250px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    /* flex-direction: column; */
     align-items: center;
     border-radius: 10px;
     padding: 20px;
-    overflow-y: auto;
-    overflow-x: hidden;
     max-height: 300px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.writeBack >.imgAndName {
-    width: 30%;
+.writeBack >.image {
+    width: 200px;
     height: 300px;
-    border: 1px black solid;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-.writeBack >.imgAndName >.imageBox{
-    display: flex;
-    align-items: center;
+    justify-content: center ;
     flex-direction: column;
-    position: relative; /*이미지 호버효과줄때*/
 }
-.writeBack >.imgAndName >.imageBox >img {
-    width: 100px; /* 고정 크기 */
-    height: 100px;
+.writeBack >.image >img {
+    width: 200px; /* 고정 크기 */
+    height: 200px;
     border-radius: 50%; /* 동그랗게 만들기 (원형 프로필) */
     object-fit: cover; /* 업로드된 이미지 크기에 맞춰 조정 */
     margin-left: 15px;
     margin-right: 15px;
 }
 
-.writeBack > .imgAndName > .imageBox > label {
-    font-size: 16px;
+.writeBack > .image> label {
+    font-size: 18px;
     font-weight: 500;
     cursor: pointer; /* 마우스 올렸을 때 클릭 가능하게 */
     color: black;
     text-decoration: underline;
+}
+.others {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.others > .nameAndTitleBox {
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+.others > .nameAndTitleBox > .name{
+    width: 25%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.nameAndTitleBox > .name label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #555;
+}
+.nameAndTitleBox > .name input{
+    width: 150px;
+    height: 25px;
+    border: #555 2px;
+    margin-left: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+.others > .nameAndTitleBox > .title{
+    width: 75%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.nameAndTitleBox > .title label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #555;
+}
+
+.nameAndTitleBox > .title input{
+    width: 90%;
+    height: 25px;
+    margin-left: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border: #555 2px;
+}
+
+.others > .contentWriteBox {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.others > .contentWriteBox label{
+    font-size: 20px;
+    font-weight: 500;
+    color: #555;
+}
+
+.others > .contentWriteBox input{
+    width: 87.5%;
+    height: 60%;
+    margin-left: 23px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border: #555 2px;
+}
+
+.others > div:last-child { /*부모요소에서 마지막 자식 요소 선택*/
+    display: flex;
+    justify-content: flex-end; 
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
