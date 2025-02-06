@@ -2,6 +2,14 @@
     margin: 0;
     padding: 0;
 }
+@font-face {
+    font-family: "AppleSDGothic";
+    src: url("./font/AppleSDGothicNeoR.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 .Bar{
     width: 100%;
@@ -26,6 +34,11 @@
 .Bar >h3 {
     color: rgb(172, 172, 172);
     font-size: 25px;
+}
+.Bar h4, .Bar h3 {
+    font-family: "AppleSDGothic", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .logos{
